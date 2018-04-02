@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="struts2-user" extends="struts2">
+     <action name="userAction_*" class="userAction" method="{1}">
+    <result name="addBev" type="redirect">Admin/user/list.jsp?pageInfo.isPage=true</result>
+     </action>
+	</package>
+</struts>

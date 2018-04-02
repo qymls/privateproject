@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2017-12-18 15:33:05 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="exeices" dynamic-insert="false" dynamic-update="false" mutable="true" name="enity.Test" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="test">
+        <id name="patientBumber" type="string">
+            <column length="30" name="patient_bumber"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="inhosDate" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="inhos_date" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="cardId" optimistic-lock="true" type="string" unique="false">
+            <column length="18" name="card_id" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="customerName" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="customer_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="sex" optimistic-lock="true" type="string" unique="false">
+            <column length="4" name="sex" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="sectionoffice" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="sectionoffice" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="bedNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="bed_number" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="faultName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="fault_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="customerMobilephone" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="customer_mobilephone"/>
+        </property>
+        <property generated="never" lazy="false" name="unitWork" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="unit_work"/>
+        </property>
+        <property generated="never" lazy="false" name="commonalityName" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="commonality_name"/>
+        </property>
+        <property generated="never" lazy="false" name="medicalModal" optimistic-lock="true" type="string" unique="false">
+            <column length="4" name="medical_modal" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="medicalCause" optimistic-lock="true" type="string" unique="false">
+            <column length="4" name="medical_cause" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="medicalState" optimistic-lock="true" type="string" unique="false">
+            <column length="4" name="medical_state"/>
+        </property>
+        <property generated="never" lazy="false" name="patientIdentification" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="patient_identification"/>
+        </property>
+        <property generated="never" lazy="false" name="occupation" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="occupation"/>
+        </property>
+    </class>
+</hibernate-mapping>

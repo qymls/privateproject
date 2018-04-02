@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans classpath:/org/springframework/beans/factory/xml/spring-beans-2.5.xsd">
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="exceptionHandler" class="exception.ExceptionAdvice">
+	</bean><!--异常处理类声明-->
+
+
+	<bean id="BeanNameAutoProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"><!--就是通过它来配置我们的spring异常处理-->
+		<property name="beanNames">
+			<list>
+				<!--
+						springBean的命名以service结尾的都走这个异常处理类 如这个 我的beanID就是用UserLoginService
+						这个命名规则就符合了我的beanNames的命名规则。 <bean id="UserLoginService"
+						class="com.MobileRDA.services.impl.UserLoginServiceImpl"> <property
+						name="xtm08DAO" ref="Xtm08DAO"></property> <property
+						name="xtm081DAO" ref="Xtm081DAO"></property> </bean>
+					-->
+				<value>*Service</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<value>exceptionHandler</value>
+			<!--
+					异常执行的bean，与上面声明的bean对应
+				-->
+		</property>
+	</bean>
+
+<bean name="entityDao" class="dao.EntityDaoImp">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+<bean name="pageInfo" class="page.PageInfo" scope="prototype">
+	<property name="maxResults" value="10" />
+</bean>
+</beans>
