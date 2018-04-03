@@ -243,7 +243,7 @@
                           <Tabs type="card" size="small" @on-tab-remove="removeTab"  :animated="false" :value="activeTab">  
                                 <template v-for="(item,index) in mainTabs">  
                                     <tab-pane v-bind:icon="item.Icon" :label="item.label" closable :name="item.name" v-if="item.show" class="demo-tabs-style2">  
-                                            <iframe frameborder="0" width="100%" height="485px" marginheight="0"  marginwidth="0" :src="item.url" ></iframe>  
+                                            <iframe frameborder="0" width="100%" height="520px" marginheight="0"  marginwidth="0" :src="item.url" ></iframe>  
                                     </tab-pane>  
                                 </template>  
                          </Tabs>  
