@@ -29,7 +29,7 @@
            width: auto;
            } 
         .layout-content{  
-            height: 551px;;
+            height: 606px;
             position:absolute;  
             right:0;  
             left:0;  
@@ -42,10 +42,10 @@
         }  
         .layout-content-main{  
             position: absolute;
-            top: 100px;
-            right: 0;
+            top: 104px;
+            width:100%;
             bottom: 0;
-            overflow: auto;
+           
             background-color: #F0F0F0;
             z-index: 1;
             transition: left .3s;
@@ -67,11 +67,12 @@
             height:82px;  
         }  
         .main-header-con{
+         top: 0;
         box-sizing: border-box;
         position: fixed;
         display: block;
         width: 100%;
-        height: 100px;
+        height: 61px;
         z-index: 20;
         box-shadow: 0 2px 1px 1px rgba(100, 100, 100, 0.1);
         transition: padding .3s;
@@ -127,7 +128,12 @@
         width: 150px;
         height: 100%;
        }
-
+       .ivu-tabs-bar{
+       position: fixed;
+       left: 317px;
+       top: 66px;
+       height: 40px;
+       }
         }
        
     </style>  
@@ -195,7 +201,7 @@
                             </Submenu>  
                         </i-menu>  
                     </i-col>  
-                    <i-col span="19"  class="demo-tabs-style1" style="background: #e3e8ee;height: 540px;    position: absolute;top: -14px;left: 21.3%">  
+                    <i-col span="19"  class="demo-tabs-style1" style="background: #e3e8ee;height: 620px;  position: absolute;top: -14px;left: 21.3%">  
                         <div class="main-header-con">
                         <div class="main-header">
                            <div class="navicon-con">
@@ -230,24 +236,17 @@
                              
                            </div>
                         </div>
-                        <div class="tags-con">
-                         <div class="tags-inner-scroll-body" style="left: 0px;margin-left: 20px;margin-top: 2px;">
-                      
-                          <Tabs type="card" size="small" @on-tab-remove="removeTab" @on-click="clickTab" :animated="false" :value="activeTab">  
-                                 
-                            </Tabs> 
-                         </div>
-                        
-                        </div> 
+                       
                         </div>
                         
                         <div class="layout-content-main" >  
-                                
+                          <Tabs type="card" size="small" @on-tab-remove="removeTab"  :animated="false" :value="activeTab">  
                                 <template v-for="(item,index) in mainTabs">  
                                     <tab-pane v-bind:icon="item.Icon" :label="item.label" closable :name="item.name" v-if="item.show" class="demo-tabs-style2">  
                                             <iframe frameborder="0" width="100%" height="485px" marginheight="0"  marginwidth="0" :src="item.url" ></iframe>  
                                     </tab-pane>  
                                 </template>  
+                         </Tabs>  
                            
                         </div>  
                     </i-col>  
@@ -306,6 +305,7 @@
                     }  
                     return {};//这个应该不可能发生  
                 },  
+                
                 //根据名称查找对应的Tab页。  
                 getTab:function(name){  
                     for(var i=0; i<this.mainTabs.length; i++){  
