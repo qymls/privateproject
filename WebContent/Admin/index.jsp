@@ -134,6 +134,9 @@
        top: 66px;
        height: 40px;
        }
+       .ivu-badge{
+       line-height: 2;
+       }
         }
        
     </style>  
@@ -201,22 +204,26 @@
                             </Submenu>  
                         </i-menu>  
                     </i-col>  
+                  
                     <i-col span="19"  class="demo-tabs-style1" style="background: #e3e8ee;height: 620px;  position: absolute;top: -14px;left: 21.3%">  
                         <div class="main-header-con">
                         <div class="main-header">
                            <div class="navicon-con">
                            <i-button type="text"><Icon type="navicon" style="font-size: 32px;"/></i-button>
                            </div>
+                           
                            <div class="header-middle-con">
-                                 <Breadcrumb>
-                                <Breadcrumb-Item>首页</Breadcrumb-Item>
-                                </Breadcrumb>
+                           
+                                 <Breadcrumb >
+                                 <Breadcrumb-Item v-for="(item,index) in breadRum" >{{item.name}}</Breadcrumb-Item>
+                                 </Breadcrumb>
+                           
                            </div>
                            <div class="header-avator-con">
-                          
+                        {{breadRum}}
                               <div class="full-screen-btn-con"><Tooltip content="全屏"><Icon type="arrow-expand" style="font-size: 23px;"/></Tooltip></div>
                               <div class="lock-screen-btn-con"><Tooltip content="锁屏"><Icon type="locked" style="font-size: 23px;"/></Tooltip></div>
-                              <div class="message-con"><Tooltip content="有3条未读信息"><Badge dot><Icon type="ios-bell" style="font-size: 23px;"/></Badge></Tooltip></div>
+                              <div class="message-con" ><Tooltip content="有3条未读信息"><Badge dot><Icon type="ios-bell" style="font-size: 25px;"/></Badge></Tooltip></div>
                           
                               <div class="user-dropdown-menu-con">
                               <Row justify="end">
@@ -236,11 +243,11 @@
                              
                            </div>
                         </div>
-                       
-                        </div>
                         
+                        </div>
+                      
                         <div class="layout-content-main" >  
-                          <Tabs type="card" size="small" @on-tab-remove="removeTab"  :animated="false" :value="activeTab">  
+                          <Tabs type="card" size="small" @on-tab-remove="removeTab"  :animated="false" :value="activeTab" @on-click="tabclick">  
                                 <template v-for="(item,index) in mainTabs">  
                                     <tab-pane v-bind:icon="item.Icon" :label="item.label" closable :name="item.name" v-if="item.show" class="demo-tabs-style2">  
                                             <iframe frameborder="0" width="100%" height="520px" marginheight="0"  marginwidth="0" :src="item.url" ></iframe>  
@@ -264,16 +271,18 @@
             data:function(){  
                 return {  
                     menuData:[  
-                        {   label:'信息管理',name:"信息管理",Icon:"social-chrome-outline", 
+                        {   label:'信息管理',name:"信息管理",Icon:"social-chrome-outline",url:'index.jsp', 
                             menuitems:[  
-                                {name:'菜谱管理',label:'菜谱管理',Icon:"ios-book-outline",url:'CookBook/list.jsp'},  
+                                {name:'菜谱管理',label:'菜谱管理',Icon:"ios-book-outline",url:'CookBook/list.jsp'},
+                                {name:'收费管理',label:'收费管理',Icon:"ios-book-outline",url:'CookBook/list.jsp'}, 
                               
                             ]  
                         },  
-                        {   label:'系统管理',name:"系统管理", Icon:"gear-a", 
+                        {   label:'系统管理',name:"系统管理", Icon:"gear-a", url:'index.jsp',
                             menuitems:[  
-                                {name:'用户管理',label:'用户管理',Icon:"person",url:'User/list.jsp'},  
-                                 
+                                {name:'用户管理',label:'用户管理',Icon:"person",url:'User/list.jsp'}, 
+                                {name:'角色管理',label:'角色管理',Icon:"person",url:''},
+                               
                             ]  
                         },  
                        
@@ -281,7 +290,8 @@
                     activeTab:null,  
                     mainHeight: 0,  
                     frameHeight: 50,  
-                    mainTabs:[]  
+                    mainTabs:[],
+                    breadRum:[],
                 };  
             },  
             mounted:function(){  
@@ -300,8 +310,13 @@
                 getMenuItem:function(name){  
                     for(var sm=0; sm<this.menuData.length; sm++){  
                         for(var mi=0; mi<this.menuData[sm].menuitems.length; mi++){  
-                            if(this.menuData[sm].menuitems[mi].name==name)return this.menuData[sm].menuitems[mi];  
-                        }  
+                            if(this.menuData[sm].menuitems[mi].name==name)
+                            	{
+                            	data = {"name":this.menuData[sm].name}
+                            	this.breadRum.push(data,this.menuData[sm].menuitems[mi]);
+                            	return this.menuData[sm].menuitems[mi];  
+                            	}
+                            	}  
                     }  
                     return {};//这个应该不可能发生  
                 },  
@@ -323,18 +338,25 @@
                     //调整掉一些补白的值  
                     this.mainHeight = (document.documentElement.scrollHeight || document.body.scrollHeight)-90-90;  
                     this.frameHeight = this.mainHeight-90;  
-                },  
+                }, 
+                //tag点击
+                tabclick:function(){
+                //	alert(this.activeTab)
+                },
                 //菜单点击  
-                menuSelect:function(name){  
+                menuSelect:function(name){
+                	this.breadRum = [];
                     this.$Message.info(name);  
                     var tab = this.getTab(name);  
                     if(tab==null){  
                         var mi = this.getMenuItem(name);  
                         var mi = $.extend({},mi,{show:true,color:"blue"});  
-                        this.mainTabs.push(mi);  
+                        this.mainTabs.push(mi);
+                       
                     }  
                     else{  
-                        tab.show=true;  
+                        tab.show=true;
+                        this.getMenuItem(name);
                     }  
                     this.activeTab=name;  
                 },  

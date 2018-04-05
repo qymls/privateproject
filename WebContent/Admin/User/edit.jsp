@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    更新用户
                 </p>
                 
-                <i-form   ref="formValidate" :model="user" :rules="ruleValidate" label-width="80" style="margin-left:300px;height:385px ;overflow:auto">   
+                <i-form   ref="formValidate" :model="user" :rules="ruleValidate" label-width="80" style="margin-left:300px;height:432px ;overflow:auto">   
               
                     <Form-item label="登录名" prop="loginName">
                         <i-input v-model="user.loginName" placeholder="" size="large"  style="width:50%"></i-input>
