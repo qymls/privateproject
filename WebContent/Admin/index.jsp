@@ -220,7 +220,7 @@
                            
                            </div>
                            <div class="header-avator-con">
-                        {{breadRum}}
+                     
                               <div class="full-screen-btn-con"><Tooltip content="全屏"><Icon type="arrow-expand" style="font-size: 23px;"/></Tooltip></div>
                               <div class="lock-screen-btn-con"><Tooltip content="锁屏"><Icon type="locked" style="font-size: 23px;"/></Tooltip></div>
                               <div class="message-con" ><Tooltip content="有3条未读信息"><Badge dot><Icon type="ios-bell" style="font-size: 25px;"/></Badge></Tooltip></div>
@@ -274,7 +274,7 @@
                         {   label:'信息管理',name:"信息管理",Icon:"social-chrome-outline",url:'index.jsp', 
                             menuitems:[  
                                 {name:'菜谱管理',label:'菜谱管理',Icon:"ios-book-outline",url:'CookBook/list.jsp'},
-                                {name:'收费管理',label:'收费管理',Icon:"ios-book-outline",url:'CookBook/list.jsp'}, 
+                                {name:'顾客管理',label:'顾客管理',Icon:"person-stalker",url:'Customter/list.jsp'}, 
                               
                             ]  
                         },  

@@ -20,9 +20,9 @@ public class EntityDaoImp extends BaseDaoImp implements EntityDaoI {
 		return (Object)session.get(cls, id);
 	}
 	
-	public Object findObjectByIDnoloadorget(Class cls,String id) {
+	public Object findObjectByIDnoloadorget(Class cls,String id,String tiaojian) {
 		Session session =HibernateSessionFactory.getSession();
-		Query query=session.createQuery("From "+cls.getName()+" where userId = "+id+"");
+		Query query=session.createQuery("From "+cls.getName()+" where "+tiaojian+" = "+id+"");
 		session.clear(); 
 		return (Object) query.uniqueResult();
 	}
@@ -44,7 +44,7 @@ public class EntityDaoImp extends BaseDaoImp implements EntityDaoI {
 	}
 
 public static void main(String[] args) {
-	User user = (User) new EntityDaoImp().findObjectByIDnoloadorget(User.class, "105");
+	User user = (User) new EntityDaoImp().findObjectByIDnoloadorget(User.class, "105","userId");
 	System.out.println(user.getLoginName());
 }
 	

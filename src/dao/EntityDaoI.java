@@ -8,7 +8,7 @@ import page.PageInfo;
 
 public interface EntityDaoI {
 	public Object findObjectByID(Class cls,String id);
-	public Object findObjectByIDnoloadorget(Class cls,String id);
+	public Object findObjectByIDnoloadorget(Class cls,String id,String tiaojian);
 	public void updateObject(Object obj)throws Exception;
 	public List<Object> findAllObject(Class cls,PageInfo pageInfo)throws Exception;
 	public void delObject(Object obj) throws Exception;

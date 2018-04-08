@@ -13,5 +13,6 @@
         <property name="hibernate.validator.apply_to_ddl">false</property>
           <property name="hibernate.connection.autocommit">true</property>
         <mapping resource="enity/User.hbm.xml"/>
+        <mapping resource="enity/Customter.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

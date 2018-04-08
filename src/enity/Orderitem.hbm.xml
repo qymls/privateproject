@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-4-6 19:15:38 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="ordersystem" dynamic-insert="false" dynamic-update="false" mutable="true" name="enity.Orderitem" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="orderitem">
+        <id name="orderId" type="int">
+            <column name="order_id"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="OId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="o_id"/>
+        </property>
+        <property generated="never" lazy="false" name="GId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="g_id"/>
+        </property>
+        <property generated="never" lazy="false" name="orderNum" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="order_num"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -2,10 +2,11 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<include file="struts-user.xml"/>
+	<include file="struts-customter.xml"/>
 	
 
 	<package name="struts2" extends="struts-default">
-	
+	<action name="uploadAction" class="control.UploadAction"></action>
 	</package>
 	<constant name="struts.devModel" value="true" />
 	<constant name="struts.multipart.saveDir" value="/tmp"/>

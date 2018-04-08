@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-4-6 19:12:50 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="ordersystem" dynamic-insert="false" dynamic-update="false" mutable="true" name="enity.Comments" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="comments">
+        <id name="CCid" type="int">
+            <column name="c_cid"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="GId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="g_id"/>
+        </property>
+        <property generated="never" lazy="false" name="CId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="c_id"/>
+        </property>
+        <property generated="never" lazy="false" name="CText" optimistic-lock="true" type="string" unique="false">
+            <column name="c_text"/>
+        </property>
+        <property generated="never" lazy="false" name="CTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="c_time" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

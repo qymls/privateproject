@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-4-6 19:16:10 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="ordersystem" dynamic-insert="false" dynamic-update="false" mutable="true" name="enity.Orders" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="orders">
+        <id name="OId" type="int">
+            <column name="o_id"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="CId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="c_id"/>
+        </property>
+        <property generated="never" lazy="false" name="OPrice" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="o_price"/>
+        </property>
+        <property generated="never" lazy="false" name="OTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="o_time" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="OState" optimistic-lock="true" type="string" unique="false">
+            <column name="o_state"/>
+        </property>
+    </class>
+</hibernate-mapping>

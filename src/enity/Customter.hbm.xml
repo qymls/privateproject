@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-4-8 10:13:47 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="ordersystem" dynamic-insert="false" dynamic-update="false" mutable="true" name="enity.Customter" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="customter">
+        <id name="CId" type="string">
+            <column name="c_id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="CName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="c_name"/>
+        </property>
+        <property generated="never" lazy="false" name="CPassword" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="c_password"/>
+        </property>
+        <property generated="never" lazy="false" name="CIphone" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="c__iphone"/>
+        </property>
+        <property generated="never" lazy="false" name="CAddress" optimistic-lock="true" type="string" unique="false">
+            <column name="c__address"/>
+        </property>
+        <property generated="never" lazy="false" name="CImg" optimistic-lock="true" type="string" unique="false">
+            <column name="c_img"/>
+        </property>
+    </class>
+</hibernate-mapping>

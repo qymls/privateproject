@@ -39,7 +39,7 @@ private EntityDaoI entityDaoI;
 //²éÑ¯Í¨¹ýid
 	public User findUserByID(String id) {
 	
-		return (User) entityDaoI.findObjectByIDnoloadorget(User.class, id);
+		return (User) entityDaoI.findObjectByIDnoloadorget(User.class, id,"userId");
 	}
 
 	//É¾³ý
