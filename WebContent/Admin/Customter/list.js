@@ -28,7 +28,11 @@ var vue = new Vue({
                          key: 'CImg',
                          render: (h, params) => {
                         	// console.log(params.row.CImg)
-                             return h('div', [
+                             return h('div', {
+                            	 attrs:{
+                            		 "class" :"demo-upload-list"
+                            	 }
+                             },[
                                  
                                  h('img', {
                                    
@@ -36,11 +40,31 @@ var vue = new Vue({
                                     	 src : "upload/"+params.row.CImg+"",
                                     	 height : "50px",
                                     	 width : "45px",
-                                    	 marginTop: "3px",
-                                         marginBottom: "3px",
+                                    	 style :"margin-top:3px;margin-bottom:3px",
+                                         
                                      }
                                      
-                                 })
+                                 }),
+                                 
+                                 h('div',{
+                                	attrs:{
+                                	"class" : "demo-upload-list-cover"	
+                                	},
+                                 on:{
+                                     click: () => {this.handleView(params.row)}
+                                  }
+                                 }, [
+                                	 
+                                   h('Icon', {
+                                       attrs:{
+                                    	  type : "ios-eye-outline", 
+                                          "style":"line-height: 3"
+                                       },
+                                      
+                                   }),
+                     
+                                 ]),
+                                 
                                  
                              ]);
                          }
@@ -100,6 +124,8 @@ var vue = new Vue({
             rows: {},
             total:"",
             recordPage : 1,
+            imgUrl: '',
+            visible: false,
             }
         },
         created(){
@@ -205,7 +231,11 @@ var vue = new Vue({
                    var $page = this;
                    $page.rows = rows;
               },
-        	
+              handleView :function(row){
+            	 console.log(row)
+            	 this.imgUrl = "upload/"+row.CImg+"";
+                 this.visible = true;
+              },
         	
         	
         	

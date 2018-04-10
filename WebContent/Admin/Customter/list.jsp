@@ -21,6 +21,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .ivu-icon{line-height: 2}
 .ivu-select-arrow{line-height:1}
 .ivu-table{  height: auto;}
+ .demo-upload-list{
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        overflow: hidden;
+        background: #fff;
+        position: relative;
+        box-shadow: 0 1px 1px rgba(0,0,0,.2);
+        margin-right: 4px;
+    }
+    .demo-upload-list img{
+        width: 100%;
+        height: 100%;
+    }
+    .demo-upload-list-cover{
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,.6);
+    }
+    .demo-upload-list:hover .demo-upload-list-cover{
+        display: block;
+    }
+    .demo-upload-list-cover i{
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 0 2px;
+    }
+
 </style>
 <title>菜谱管理</title>
 </head>
@@ -66,6 +103,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            
             </Card>
         </Col>
+        <Modal title="View Image" v-model="visible" transfer scrollable>
+        <img :src="imgUrl" v-if="visible" style="width: 100%">
+          </Modal>
     </Row>
 
 
